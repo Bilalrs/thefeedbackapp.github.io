@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy — Feedback App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 1rem; }
+    h1, h2, h3 { color: #333; }
+    h1 { margin-top: 2rem; }
+    hr { margin: 2rem 0; border: none; border-top: 1px solid #ccc; }
+    ul { margin-left: 1.2rem; }
+    code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+  <h1>Privacy Policy for Feedback App</h1>
+  <p><strong>Last updated:</strong> July 11, 2025</p>
+  <p><strong>Feedback</strong> (“we,” “our,” or “us”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our iOS app (“App”), our server endpoints, and related services (“Services”). By downloading or using the App and Services, you agree to the collection and use of information as described in this Privacy Policy.</p>
+
+  <hr>
+
+  <h2>1. Information We Collect</h2>
+
+  <h3>1.1 Personal Profile Information</h3>
+  <ul>
+    <li><strong>Full Name, Display Name, Initials</strong><br>Collected when you sign up via Sign in with Apple or edit your profile.</li>
+    <li><strong>Email Address</strong><br>Collected at sign-up or profile edit for account creation and notifications.</li>
+    <li><strong>Phone Number</strong><br>Optional; collected when you add or edit your phone number for profile completeness.</li>
+    <li><strong>Date of Birth & Gender</strong><br>Optional; collected if provided to support age-appropriate features.</li>
+  </ul>
+
+  <h3>1.2 Authentication Credentials</h3>
+  <ul>
+    <li><strong>Apple ID Credential</strong><br>We integrate Sign in with Apple. We request only name and email scopes; no passwords are stored on our servers.</li>
+  </ul>
+
+  <h3>1.3 Profile Photo</h3>
+  <ul>
+    <li><strong>Image Data</strong><br>When you pick a photo and store the resulting image as a <code>CKAsset</code> in your private CloudKit record.</li>
+  </ul>
+
+  <h3>1.4 Location Data</h3>
+  <ul>
+    <li><strong>When-in-Use & Always-On Location</strong><br>
+      <ul>
+        <li><strong>Check-In</strong>: Your precise location (latitude, longitude) is collected only after you explicitly tap “Check In.”</li>
+        <li><strong>Background Sharing</strong>: If you grant Always authorization, we continue updating and querying your location in the background to power proximity-based feedback.</li>
+      </ul>
+      We process and store <code>latitude</code>, <code>longitude</code>, and a <code>locationLastUpdated</code> timestamp in your CloudKit record.
+    </li>
+  </ul>
+
+  <h3>1.5 Feedback & Interaction Data</h3>
+  <ul>
+    <li><strong>Feedback Messages & Ratings</strong><br>Text you send and the numeric rating (0.5–5.0) stored as CloudKit records.</li>
+    <li><strong>Feedback Score</strong><br>Computed and stored per user (1.0–5.0) in CloudKit based on feedback history.</li>
+    <li><strong>Encounters / Proximity Sessions</strong><br>Server-side code measures how long two users remain within proximity (≤ 10 m) and, upon separation, writes “Encounter” records to CloudKit with timestamps, durations, and latitude/longitude.</li>
+  </ul>
+
+  <h3>1.6 Blocking Information</h3>
+  <ul>
+    <li><strong>Blocked User IDs</strong><br>Stored locally in <code>UserDefaults</code> and synced to your CloudKit profile.</li>
+  </ul>
+
+  <h3>1.7 Notifications & Device Token</h3>
+  <ul>
+    <li><strong>APNs Device Token</strong><br>Collected and saved in your CloudKit record to enable push notifications.</li>
+    <li><strong>Push Notification Usage</strong>
+      <ul>
+        <li><strong>Reminder Notifications</strong>: Daily 6 AM reminders and weekly summaries scheduled via <code>UNUserNotificationCenter</code>.</li>
+        <li><strong>Leave Feedback</strong>: Prompt after qualifying proximity sessions.</li>
+        <li><strong>Stale-Location Alerts</strong>: Server script detects when your location stops updating and pushes “please keep app running” notices.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>1.8 Technical & Usage Data</h3>
+  <ul>
+    <li><strong>CloudKit Record Identifiers</strong><br>Used internally to fetch and update your profile, feedback, and encounter records.</li>
+    <li><strong>Timestamps & Metrics</strong><br>Recorded for when feedback is sent/viewed, location updates, notification scheduling, and CloudKit operations.</li>
+    <li><strong>Local Caching</strong><br>We cache profile fields, feedback arrays, blocked lists, and eligibility data in <code>UserDefaults</code> for offline support and performance.</li>
+  </ul>
+
+  <hr>
+
+  <h2>2. How We Use Your Information</h2>
+  <ul>
+    <li><strong>Account Creation & Management</strong>: To create and maintain your user profile in CloudKit and in-app state.</li>
+    <li><strong>Feedback Functionality</strong>: To enable sending, receiving, and displaying feedback messages and ratings, and to compute and display your feedback score.</li>
+    <li><strong>Proximity-Based Features</strong>: To identify nearby users when checked in, manage eligibility timers, and trigger leave-feedback notifications after separation.</li>
+    <li><strong>Notifications</strong>: To schedule and deliver push notifications for daily/weekly reminders, leave-feedback prompts, and stale-location alerts.</li>
+    <li><strong>Blocking</strong>: To prevent blocked users from sending you feedback and to hide them from your radar view.</li>
+    <li><strong>Server-Side Proximity Processing</strong>: To aggregate CloudKit location data, compute proximity sessions, enforce together/grace/separation thresholds, and write “Encounters” back to CloudKit.</li>
+    <li><strong>Security & Integrity</strong>: To sign server-to-CloudKit requests with ECDSA, generate APNs JWTs, and verify request authenticity.</li>
+    <li><strong>Caching & Offline Support</strong>: To store data locally for smoother UI and offline access.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3. How We Share Your Information</h2>
+  <ul>
+    <li><strong>Other App Users</strong>
+      <ul>
+        <li><strong>Feedback Records</strong>: Your feedback text, timestamp, rating, and display name are visible to the recipient.</li>
+        <li><strong>Encounter Records</strong>: Proximity sessions write records for both participants.</li>
+        <li><strong>Blocking</strong>: When you block someone, their ID is stored in your profile; recipients cannot see you.</li>
+      </ul>
+    </li>
+    <li><strong>Apple’s CloudKit Service</strong><br>All personal and interaction data is stored in your private CloudKit container (<code>iCloud.com.location.Feedback</code>). We never share data outside CloudKit except as described above.</li>
+    <li><strong>Push Notification Servers</strong>
+      <ul>
+        <li><strong>Apple APNs</strong>: We send your device token and payloads to Apple’s APNs.</li>
+        <li><strong>Server-Side Scripts</strong>: Your device token is used to look up your CloudKit profile and send notifications; logs are not shared externally.</li>
+      </ul>
+    </li>
+    <li><strong>No Third-Party Analytics or Advertising</strong><br>We do not integrate external analytics or ad networks.</li>
+  </ul>
+
+  <hr>
+
+  <h2>4. Data Retention</h2>
+  <ul>
+    <li><strong>CloudKit Records</strong><br>Persist until you delete your account or we remove them upon request.</li>
+    <li><strong>Local Cache (<code>UserDefaults</code>)</strong><br>Persists until you uninstall the App or clear the app data.</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. Your Choices & Rights</h2>
+  <ul>
+    <li><strong>Edit or Delete Profile Information</strong><br>Use the in-app Edit Profile screen to update or clear name, photo, email, phone, birthday, or gender.</li>
+    <li><strong>Revoke Location Permissions</strong><br>Change “When In Use” or “Always” location permissions in iOS Settings to disable proximity features.</li>
+    <li><strong>Unblock Users</strong><br>Tap “Unblock” in Blocked Users to remove IDs from your block list.</li>
+    <li><strong>Data Export & Deletion</strong><br>To export or permanently delete your CloudKit data (profile, feedback, encounters), contact us at the email below.</li>
+    <li><strong>Children’s Privacy</strong><br>The App is not intended for users under 17. We do not knowingly collect data from children under 17.</li>
+  </ul>
+
+  <hr>
+
+  <h2>6. Security</h2>
+  <ul>
+    <li><strong>Encryption in Transit & At Rest</strong><br>All data to/from CloudKit and APNs is sent over TLS. CloudKit encrypts data at rest.</li>
+    <li><strong>ECDSA Request Signing</strong><br>Server uses your private key to sign CloudKit API requests; only valid signatures are accepted by Apple.</li>
+    <li><strong>Device Security</strong><br>Local caches in <code>UserDefaults</code> are protected by iOS sandboxing and device encryption.</li>
+  </ul>
+
+  <hr>
+
+  <h2>7. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy to reflect changes in features or legal requirements. We will post the revised date at the top and, for significant changes, notify you in-app.</p>
+
+  <hr>
+
+  <h2>8. Contact Us</h2>
+  <p>If you have questions or requests regarding this Privacy Policy or your data, please contact:</p>
+  <p><strong>Email:</strong> feedback@thefeedbackapp.org<br>
+
+  <p><em>By using our App and Services, you acknowledge that you have read, understood, and agree to this Privacy Policy.</em></p>
+
+</body>
+</html>
