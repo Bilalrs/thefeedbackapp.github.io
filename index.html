@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Feedback — Quick, secure feedback</title>
-  <meta name="description" content="Feedback makes it effortless to share quick, secure feedback with people and businesses you trust. Available on the App Store." />
+  <title>Feedback. - Your social credit score</title>
+  <meta name="description" content="Feedback makes it effortless to share quick, honest feedback with people. Available on the App Store." />
 
   <!-- Icons -->
   <link rel="apple-touch-icon" href="/Feedback_logo_nobackground.png" />
-  <link rel="icon" href="/Feedback_logo_nobackground.png" />
+  <link rel="icon" href="/Feedback_logo_small.png" />
 
   <!-- Font: Poppins 600 (SemiBold) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +17,14 @@
 
   <!-- Social Meta -->
   <meta name="theme-color" content="#07151f" />
-  <meta property="og:title" content="Feedback — Quick, secure feedback" />
-  <meta property="og:description" content="Share quick, secure feedback with the people and businesses you trust." />
+  <meta property="og:title" content="Feedback. - Your social credit score" />
+  <meta property="og:description" content="Feedback makes it effortless to share quick, honest feedback with people." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/Feedback_mockup.png" />
-  <meta property="og:site_name" content="Feedback" />
+  <meta property="og:site_name" content="Feedback." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Feedback — Quick, secure feedback" />
-  <meta name="twitter:description" content="Share quick, secure feedback with the people and businesses you trust." />
+  <meta name="twitter:title" content="Feedback. - Your social credit score" />
+  <meta name="twitter:description" content="Share quick, honest feedback with people." />
 
   <style>
     :root {
@@ -72,8 +72,11 @@
     .icon-btn:active { transform: translateY(1px); }
     .icon { width:20px; height:20px; display:block; }
 
+    /* NEW: group right-side icons */
+    .actions { display:flex; align-items:center; gap:10px; }
+
     /* Hero */
-    .hero { padding: 52px 0 28px; } /* moved up (less top padding) */
+    .hero { padding: 36px 0 28px; } /* moved up (less top padding) */
     .hero-grid { display:grid; grid-template-columns: 1fr; gap: 28px; align-items:center; }
     @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 42px; } }
 
@@ -130,16 +133,26 @@
         <span>Feedback</span>
       </a>
 
-      <!-- Instagram icon button -->
-      <a class="icon-btn" aria-label="Feedback on Instagram"
-         href="https://www.instagram.com/feedback_app?igsh=b3pxNTlvcTg4ZHZl" target="_blank" rel="noopener">
-        <!-- Instagram SVG -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4.2" />
-          <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none" />
-        </svg>
-      </a>
+      <!-- Right-side icons: Instagram + Mail -->
+      <div class="actions">
+        <a class="icon-btn" aria-label="Feedback on Instagram"
+           href="https://www.instagram.com/feedback.app?igsh=b3pxNTlvcTg4ZHZl" target="_blank" rel="noopener">
+          <!-- Instagram SVG -->
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+
+        <a class="icon-btn" href="mailto:feedback@thefeedbackapp.org" aria-label="Contact">
+          <!-- simple mail icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M3 7.5a2.5 2.5 0 0 1 2.5-2.5h13A2.5 2.5 0 0 1 21 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/>
+            <path d="m3.8 7.9 7.1 5.2a2 2 0 0 0 2.2 0l7.1-5.2"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -153,13 +166,6 @@
           <a aria-label="Download on the App Store" href="https://apps.apple.com/us/app/feedback/id6744941885">
             <img class="badge" alt="Download on the App Store"
                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1730764800">
-          </a>
-          <a class="icon-btn" href="mailto:feedback@thefeedbackapp.org" aria-label="Contact">
-            <!-- simple mail icon -->
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M3 7.5a2.5 2.5 0 0 1 2.5-2.5h13A2.5 2.5 0 0 1 21 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/>
-              <path d="m3.8 7.9 7.1 5.2a2 2 0 0 0 2.2 0l7.1-5.2"/>
-            </svg>
           </a>
         </div>
       </div>
