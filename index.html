@@ -10,12 +10,12 @@
   <link rel="apple-touch-icon" href="/Feedback_logo_nobackground.png" />
   <link rel="icon" href="/Feedback_logo_nobackground.png" />
 
-  <!-- Fonts: Poppins -->
+  <!-- Font: Poppins 600 (SemiBold) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-  <!-- Theme & Meta -->
+  <!-- Social Meta -->
   <meta name="theme-color" content="#07151f" />
   <meta property="og:title" content="Feedback — Quick, secure feedback" />
   <meta property="og:description" content="Share quick, secure feedback with the people and businesses you trust." />
@@ -32,6 +32,7 @@
       --text: #ffffff;
       --muted: rgba(255,255,255,.72);
       --ring: rgba(255,255,255,.25);
+      --line: rgba(255,255,255,.14);
     }
 
     * { box-sizing: border-box; }
@@ -40,6 +41,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-weight: 600; /* SemiBold everywhere */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -56,49 +58,47 @@
       backdrop-filter: blur(6px);
     }
     .nav { display:flex; align-items:center; justify-content:space-between; padding: 16px 0; }
-    .brand { display:inline-flex; gap:12px; align-items:center; font-weight:700; }
+    .brand { display:inline-flex; gap:12px; align-items:center; }
     .brand img { height:34px; width:auto; filter: drop-shadow(0 4px 14px rgba(255,255,255,.1)); }
-    .brand span { font-weight:700; }
+    .brand span { font-weight: 600; }
 
-    .btn {
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border-radius:999px; background:transparent;
-      border: 1px solid rgba(255,255,255,.4); color:var(--text);
-      transition: box-shadow .2s ease;
+    .icon-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 40px; height: 40px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.4);
+      transition: box-shadow .2s ease, transform .08s ease;
     }
-    .btn:hover { box-shadow: 0 0 0 6px var(--ring); }
+    .icon-btn:hover { box-shadow: 0 0 0 6px var(--ring); }
+    .icon-btn:active { transform: translateY(1px); }
+    .icon { width:20px; height:20px; display:block; }
 
     /* Hero */
-    .hero { padding: 72px 0 36px; }
+    .hero { padding: 52px 0 28px; } /* moved up (less top padding) */
     .hero-grid { display:grid; grid-template-columns: 1fr; gap: 28px; align-items:center; }
     @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 42px; } }
 
-    .eyebrow {
-      display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-      padding: 6px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.14); color: var(--muted);
-    }
     h1 {
-      margin: 14px 0 12px;
+      margin: 0 0 10px;
       font-size: clamp(44px, 7vw, 84px);
       line-height: 1.02; letter-spacing: -.02em;
-      font-weight: 800; /* Poppins bold */
+      font-weight: 600; /* SemiBold */
     }
     .sub {
-      margin: 0 0 24px; font-size: clamp(16px, 2.3vw, 20px); color: var(--muted); font-weight: 600;
+      margin: 0 0 22px; font-size: clamp(16px, 2.3vw, 20px); color: var(--muted);
     }
     .cta { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
     .badge { height:56px; }
 
-    /* Mockup image – no border/box */
+    /* Mockup image (no box) */
     .mock {
       width: 100%; height: auto; display:block; border-radius: 22px;
       border: none; box-shadow: none; background: transparent;
     }
 
     /* Footer */
-    footer { border-top: 1px solid rgba(255,255,255,.14); padding: 18px 0 48px; color: rgba(255,255,255,.72); font-size: 14px; }
+    footer { border-top: 1px solid var(--line); padding: 18px 0 48px; color: var(--muted); font-size: 14px; }
     .foot { display:grid; gap: 16px; grid-template-columns: 1fr; }
-    @media (min-width: 780px){ .foot { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 780px){ .foot { grid-template-columns: 1fr 1fr; } } /* Links + Legal only */
     .foot h4 { margin: 0 0 8px; color: var(--text); font-size: 14px; text-transform: uppercase; letter-spacing:.12em; }
     .foot p { margin: 0; }
     .links a { margin-right: 12px; }
@@ -129,7 +129,17 @@
         <img src="/Feedback_logo_nobackground.png" alt="Feedback logo">
         <span>Feedback</span>
       </a>
-      <a class="btn" href="#download">Download</a>
+
+      <!-- Instagram icon button -->
+      <a class="icon-btn" aria-label="Feedback on Instagram"
+         href="https://www.instagram.com/feedback_app?igsh=b3pxNTlvcTg4ZHZl" target="_blank" rel="noopener">
+        <!-- Instagram SVG -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
     </div>
   </header>
 
@@ -137,7 +147,6 @@
   <main class="container hero">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Private by default</span>
         <h1>Feedback.</h1>
         <p class="sub">Your social credit score</p>
         <div class="cta" id="download">
@@ -145,11 +154,17 @@
             <img class="badge" alt="Download on the App Store"
                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1730764800">
           </a>
-          <a class="btn" href="mailto:feedback@thefeedbackapp.org">Contact</a>
+          <a class="icon-btn" href="mailto:feedback@thefeedbackapp.org" aria-label="Contact">
+            <!-- simple mail icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M3 7.5a2.5 2.5 0 0 1 2.5-2.5h13A2.5 2.5 0 0 1 21 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/>
+              <path d="m3.8 7.9 7.1 5.2a2 2 0 0 0 2.2 0l7.1-5.2"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- iPhone mockup (no box) -->
+      <!-- iPhone mockup -->
       <div>
         <img class="mock" src="/Feedback_mockup.png" alt="Feedback app on iPhone">
       </div>
@@ -159,13 +174,13 @@
   <!-- Footer -->
   <footer>
     <div class="container foot">
-      <div>
-        <h4>Feedback</h4>
-        <p>Quick, secure feedback that actually gets used.</p>
-      </div>
       <div class="links">
         <h4>Links</h4>
-        <p><a href="/privacy-policy">Privacy Policy</a> <a href="/support">Support</a> <a href="https://apps.apple.com/us/app/feedback/id6744941885">App Store</a></p>
+        <p>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/support">Support</a>
+          <a href="https://apps.apple.com/us/app/feedback/id6744941885">App Store</a>
+        </p>
       </div>
       <div>
         <h4>Legal</h4>
