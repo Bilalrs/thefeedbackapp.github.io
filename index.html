@@ -6,7 +6,7 @@
   <title>Feedback — Quick, secure feedback</title>
   <meta name="description" content="Feedback makes it effortless to share quick, secure feedback with people and businesses you trust. Available on the App Store." />
 
-  <!-- Favicon / Touch Icon -->
+  <!-- Icons -->
   <link rel="apple-touch-icon" href="/Feedback_logo_small.png" />
   <link rel="icon" href="/Feedback_logo_small.png" />
 
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Feedback — Quick, secure feedback" />
   <meta property="og:description" content="Share quick, secure feedback with the people and businesses you trust." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/Feedback_logo_small.png" />
+  <meta property="og:image" content="/Feedback_mockup.png" />
   <meta property="og:site_name" content="Feedback" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Feedback — Quick, secure feedback" />
@@ -24,79 +24,90 @@
   <style>
     :root {
       --bg: #07151f;
-      --card: #07151f;
-      --muted: rgba(255,255,255,.72);
       --text: #ffffff;
-      --brand: #ffffff;
-      --accent: #ffffff;
+      --muted: rgba(255,255,255,.72);
       --ring: rgba(255,255,255,.25);
-    }
-    @media (prefers-color-scheme: light) { 
-      :root { 
-        --bg: #07151f; 
-        --card: #07151f; 
-        --muted: rgba(255,255,255,.72); 
-        --text: #ffffff; 
-        --brand: #ffffff; 
-        --accent: #ffffff; 
-        --ring: rgba(255,255,255,.25);
-      } 
+      --line: rgba(255,255,255,.14);
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; padding: 0; }
+    html, body { height: 100%; margin: 0; }
     body {
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
       background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--text); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .container { max-width: 1100px; padding: 0 24px; margin: 0 auto; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    header { position: sticky; top: 0; z-index: 40; background: linear-gradient(to bottom, rgba(7,21,31,.9), rgba(7,21,31,.6), transparent); backdrop-filter: blur(6px); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-    .brand { display: inline-flex; gap: 12px; align-items: center; color: var(--brand); font-weight: 700; letter-spacing: .3px; }
-    .nav a.btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius: 999px; background: transparent; border: 1px solid rgba(255,255,255,.4); color: var(--text); text-decoration:none; transition: box-shadow 0.2s; }
-    .nav a.btn:hover { box-shadow: 0 0 0 6px var(--ring); }
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: linear-gradient(to bottom, rgba(7,21,31,.9), rgba(7,21,31,.6), transparent);
+      backdrop-filter: blur(6px);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 16px 0; }
+    .brand { display:inline-flex; gap:12px; align-items:center; font-weight:700; letter-spacing:.3px; }
+    .brand img { height:34px; width:auto; filter: drop-shadow(0 4px 14px rgba(255,255,255,.1)); }
+    .btn {
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:999px; background:transparent;
+      border: 1px solid rgba(255,255,255,.4); color:var(--text);
+      transition: box-shadow .2s ease;
+    }
+    .btn:hover { box-shadow: 0 0 0 6px var(--ring); }
 
-    .hero { padding: 72px 0 36px; text-align: center; }
-    .eyebrow { display:inline-block; font-size: 12px; letter-spacing:.14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); margin-bottom: 14px; color: var(--muted); }
-    h1 { margin: 0 auto 18px; font-size: clamp(34px, 6vw, 64px); line-height: 1.04; letter-spacing: -.02em; max-width: 20ch; }
-    .lead { margin: 0 auto; font-size: clamp(16px, 2.4vw, 20px); line-height: 1.6; color: var(--muted); max-width: 60ch; }
-    .cta { margin-top: 28px; display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap; }
-    .badge { height: 56px; }
+    /* Hero */
+    .hero { padding: 72px 0 36px; }
+    .hero-grid { display:grid; grid-template-columns: 1fr; gap: 28px; align-items:center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 42px; } }
 
-    .card-row { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); margin: 56px 0; }
-    .card { grid-column: span 12; padding: 22px; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); }
-    .card h3 { margin: 6px 0 8px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); }
-    .icon { width: 28px; height: 28px; opacity:.9; }
+    .eyebrow {
+      display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+      padding: 6px 12px; border-radius:999px; border:1px solid var(--line); color: var(--muted);
+    }
+    h1 {
+      margin: 14px 0 12px;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.02; letter-spacing: -.02em;
+    }
+    .sub {
+      margin: 0 0 22px; font-size: clamp(16px, 2.3vw, 20px); color: var(--muted);
+    }
+    .cta { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .badge { height:56px; }
 
-    @media (min-width: 720px){
-      .card { grid-column: span 4; }
+    .mock {
+      width: 100%; height: auto; display:block; border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 60px rgba(0,0,0,.35);
     }
 
-    .how { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); align-items: center; margin: 70px 0; }
-    .phone { grid-column: span 12; border-radius: 30px; background: #07151f; border: 1px solid rgba(255,255,255,.14); padding: 18px; box-shadow: 0 30px 60px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; }
-    .phone-inner { height: 520px; border-radius: 24px; background: #07151f; border: 1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; }
-    .steps { grid-column: span 12; }
-    .steps ol { list-style: none; padding: 0; margin: 0; }
-    .steps li { display:flex; gap: 14px; padding: 16px 0; border-bottom: 1px dashed rgba(255,255,255,.12); }
-    .steps li:last-child { border-bottom: none; }
-    .num { flex: 0 0 32px; height: 32px; display:grid; place-items:center; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); font-weight: 700; }
-    @media (min-width: 920px){ .phone{ grid-column: span 6;} .steps{ grid-column: span 6; padding-left: 24px;} }
+    /* Feature Cards (kept minimal) */
+    .cards { display:grid; grid-template-columns: 1fr; gap:16px; margin: 48px 0 18px; }
+    .card {
+      padding: 20px; border-radius: 16px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
 
-    .legal { margin: 70px 0 24px; color: var(--muted); font-size: 14px; }
-    footer { border-top: 1px solid rgba(255,255,255,.12); padding: 18px 0 48px; color: var(--muted); font-size: 14px; }
-    .foot-grid { display:grid; gap: 18px; grid-template-columns: repeat(12,1fr); }
-    .foot-col { grid-column: span 12; }
-    .foot-col h4 { margin: 0 0 8px; color: var(--text); font-size: 14px; text-transform: uppercase; letter-spacing:.12em; }
-    .foot-col p { margin: 0; }
-    @media (min-width: 780px){ .foot-col { grid-column: span 4; } }
+    @media (min-width: 720px){ .cards { grid-template-columns: repeat(3, 1fr); } }
 
-    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 1px, 1px);white-space:nowrap;border:0; }
+    /* Legal + Footer */
+    .legal { margin: 64px 0 28px; color: var(--muted); font-size: 14px; }
+    footer { border-top: 1px solid var(--line); padding: 18px 0 48px; color: var(--muted); font-size: 14px; }
+    .foot { display:grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 780px){ .foot { grid-template-columns: repeat(3, 1fr); } }
+    .foot h4 { margin: 0 0 8px; color: var(--text); font-size: 14px; text-transform: uppercase; letter-spacing:.12em; }
+    .foot p { margin: 0; }
+    .links a { margin-right: 12px; }
+
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0, 0, 1px, 1px); white-space:nowrap; border:0; }
   </style>
 
   <!-- JSON-LD Schema -->
@@ -117,64 +128,57 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <a class="brand" href="#" aria-label="Feedback home">
-        <img src="/Feedback_logo_small.png" alt="Feedback logo" style="height:34px;width:auto;filter: drop-shadow(0 4px 14px rgba(255,255,255,.1));"/>
+        <img src="/Feedback_logo_small.png" alt="Feedback logo">
         <span>Feedback</span>
       </a>
       <a class="btn" href="#download">Download</a>
     </div>
   </header>
 
-  <main>
-    <section class="hero container" id="home">
-      <span class="eyebrow">Private by default</span>
-      <h1>Quick, secure feedback<br/>that actually gets used.</h1>
-      <p class="lead">Feedback is the simplest way to share how things are going — with friends, teammates, or your favourite businesses — in seconds. No inboxes, no spam, just signal.</p>
-      <div class="cta" id="download">
-        <a aria-label="Download on the App Store" href="https://apps.apple.com/us/app/feedback/id6744941885">
-          <img class="badge" alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1730764800"/>
-        </a>
-        <a class="btn" href="mailto:feedback@thefeedbackapp.org">Contact</a>
-      </div>
+  <!-- Hero -->
+  <main class="container hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Private by default</span>
+        <h1>Feedback is Feedback.</h1>
+        <p class="sub">Your social credit score</p>
+        <div class="cta" id="download">
+          <a aria-label="Download on the App Store" href="https://apps.apple.com/us/app/feedback/id6744941885">
+            <img class="badge" alt="Download on the App Store"
+                 src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1730764800">
+          </a>
+          <a class="btn" href="mailto:feedback@thefeedbackapp.org">Contact</a>
+        </div>
 
-      <div class="card-row container">
-        <article class="card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-          <h3>One-tap ratings</h3>
-          <p>Tap a star and move on. Your feedback is stored securely and shared only where you choose.</p>
-        </article>
-        <article class="card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
-          <h3>Signal, not noise</h3>
-          <p>We summarise feedback into clear insights — not another crowded comment box.</p>
-        </article>
-        <article class="card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 1l3 7h7l-5.5 4 2.5 8L12 16l-7 4 2.5-8L2 8h7z"/></svg>
-          <h3>Private by design</h3>
-          <p>No public profiles and no selling your data. You’re in control of what you share and with whom.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="container how" aria-labelledby="howitworks-heading">
-      <div class="phone" aria-hidden="true">
-        <div class="phone-inner">
-          <img src="/Feedback_logo_small.png" alt="Feedback app mock" style="opacity:.9; width: 120px; height: auto;"/>
+        <!-- Minimal value props -->
+        <div class="cards">
+          <div class="card">
+            <h3>One-tap ratings</h3>
+            <p>Tap a star and move on. Share only where you choose.</p>
+          </div>
+          <div class="card">
+            <h3>Signal, not noise</h3>
+            <p>We turn feedback into clear, useful insight.</p>
+          </div>
+          <div class="card">
+            <h3>Private by design</h3>
+            <p>No public profiles. No selling your data.</p>
+          </div>
         </div>
       </div>
-      <div class="steps">
-        <h2 id="howitworks-heading" class="sr-only">How Feedback works</h2>
-        <ol>
-          <li><span class="num">1</span> <div><strong>Tap a star.</strong><br/><span style="color:var(--muted)">Give fast, focused feedback in seconds.</span></div></li>
-          <li><span class="num">2</span> <div><strong>We crunch it.</strong><br/><span style="color:var(--muted)">Smart summaries turn ratings into useful insight.</span></div></li>
-          <li><span class="num">3</span> <div><strong>You stay in control.</strong><br/><span style="color:var(--muted)">Choose who sees what. No public profiles, no selling your data.</span></div></li>
-        </ol>
-      </div>
-    </section>
 
-    <section class="container legal" aria-label="Company details">
+      <!-- iPhone mockup -->
+      <div>
+        <img class="mock" src="/Feedback_mockup.png" alt="Feedback app on iPhone">
+      </div>
+    </div>
+
+    <!-- Legal / Company details -->
+    <section class="legal" aria-label="Company details">
       <p><strong>Company:</strong> FEEDBACK GLOBAL LTD</p>
       <p><strong>Company number:</strong> 16735294 (Registered in England & Wales)</p>
       <p><strong>Address:</strong> 91 Clapham Common Northside, London SW4 9SG, United Kingdom</p>
@@ -182,18 +186,18 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="container foot-grid">
-      <div class="foot-col">
+    <div class="container foot">
+      <div>
         <h4>Feedback</h4>
         <p>Quick, secure feedback that actually gets used.</p>
       </div>
-      <div class="foot-col">
+      <div class="links">
         <h4>Links</h4>
-        <p><a href="/privacy-policy">Privacy Policy</a> · <a href="/support">Support</a></p>
-        <p><a href="https://apps.apple.com/us/app/feedback/id6744941885">App Store</a></p>
+        <p><a href="/privacy-policy">Privacy Policy</a> <a href="/support">Support</a> <a href="https://apps.apple.com/us/app/feedback/id6744941885">App Store</a></p>
       </div>
-      <div class="foot-col">
+      <div>
         <h4>Legal</h4>
         <p>© <span id="year"></span> FEEDBACK GLOBAL LTD · Company No. 16735294</p>
       </div>
