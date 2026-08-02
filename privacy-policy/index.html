@@ -2,162 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy — Feedback App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Feedback</title>
   <style>
-    body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 1rem; }
-    h1, h2, h3 { color: #333; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; max-width: 800px; margin: auto; padding: 1rem; color: #1d1d1f; }
+    h1, h2, h3 { color: #111; }
     h1 { margin-top: 2rem; }
-    hr { margin: 2rem 0; border: none; border-top: 1px solid #ccc; }
+    h2 { margin-top: 2rem; }
+    hr { margin: 2rem 0; border: 0; border-top: 1px solid #d2d2d7; }
     ul { margin-left: 1.2rem; }
-    code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-  <h1>Privacy Policy for Feedback App</h1>
-  <p><strong>Last updated:</strong> July 11, 2025</p>
-  <p><strong>Feedback</strong> (“we,” “our,” or “us”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our iOS app (“App”), our server endpoints, and related services (“Services”). By downloading or using the App and Services, you agree to the collection and use of information as described in this Privacy Policy.</p>
+  <h1>Privacy Policy for Feedback</h1>
+  <p><strong>Last updated:</strong> August 2, 2026</p>
+
+  <p>Feedback ("we", "us", or "our") provides an iOS service for sharing and receiving anonymous feedback following real-world interactions. This Privacy Policy explains what information we collect, how we use it, and the choices available to you when you use the Feedback app, our supporting services, and our website (together, the "Services").</p>
 
   <hr>
 
   <h2>1. Information We Collect</h2>
 
-  <h3>1.1 Personal Profile Information</h3>
+  <h3>Account and profile information</h3>
   <ul>
-    <li><strong>Full Name, Display Name, Initials</strong><br>Collected when you sign up via Sign in with Apple or edit your profile.</li>
-    <li><strong>Email Address</strong><br>Collected at sign-up or profile edit for account creation and notifications.</li>
-    <li><strong>Phone Number</strong><br>Optional; collected when you add or edit your phone number for profile completeness.</li>
-    <li><strong>Date of Birth & Gender</strong><br>Optional; collected if provided to support age-appropriate features.</li>
+    <li><strong>Sign in with Apple information.</strong> When you create an account, we receive the name and email address that you choose to share through Sign in with Apple. We do not receive or store your Apple ID password.</li>
+    <li><strong>Profile information.</strong> We collect the profile information you provide or edit, such as your name or display name, email address, phone number, date of birth, gender, initials, and profile photo.</li>
+    <li><strong>Profile photo.</strong> If you choose a photo, the selected image is stored with your profile in CloudKit. We do not access your photo library unless you choose a photo or take one for your profile.</li>
   </ul>
 
-  <h3>1.2 Authentication Credentials</h3>
+  <h3>Location and proximity information</h3>
   <ul>
-    <li><strong>Apple ID Credential</strong><br>We integrate Sign in with Apple. We request only name and email scopes; no passwords are stored on our servers.</li>
+    <li><strong>Precise location.</strong> When you check in and grant permission, the app collects your latitude, longitude, and the time of the location update. If you grant Always location access, the app can update location in the background while you remain checked in.</li>
+    <li><strong>Nearby and encounter information.</strong> We use recent location updates to identify checked-in users who are near one another. Our service may create an encounter after two cumulative minutes within a 20 metre radius. Encounter records can include participant record identifiers, timestamps, duration, and the location associated with the encounter. A short location interruption may be tolerated so background delivery gaps do not immediately end an in-progress encounter.</li>
+    <li><strong>Location freshness.</strong> We store timestamps showing when location was last updated and, where applicable, when a location-related notification was sent. This helps us show nearby users and avoid acting on stale location data.</li>
   </ul>
 
-  <h3>1.3 Profile Photo</h3>
+  <h3>Feedback and interaction information</h3>
   <ul>
-    <li><strong>Image Data</strong><br>When you pick a photo and store the resulting image as a <code>CKAsset</code> in your private CloudKit record.</li>
+    <li><strong>Feedback content.</strong> We collect the message, rating, category (Work, Social, or Dating), timestamps, sender and recipient technical identifiers, and delivery/visibility information needed to send, release, display, moderate, and calculate feedback.</li>
+    <li><strong>Scores and history.</strong> We calculate and store feedback-score and score-history data from ratings you receive.</li>
+    <li><strong>Eligibility information.</strong> We store the information necessary to show an eligible encounter and enforce the feedback window and cooldown. Feedback eligibility normally expires after 24 hours, and the same pair cannot create a new feedback opportunity during the applicable 24-hour cooldown.</li>
+    <li><strong>Reports and blocks.</strong> If you report feedback or block a user, we store the report/block information. A reported item is immediately hidden on your device and marked in CloudKit so it remains hidden from you; the original feedback and its metadata are retained for moderation and service integrity.</li>
   </ul>
 
-  <h3>1.4 Location Data</h3>
+  <h3>Phone numbers, contacts, and SMS</h3>
   <ul>
-    <li><strong>When-in-Use & Always-On Location</strong><br>
-      <ul>
-        <li><strong>Check-In</strong>: Your precise location (latitude, longitude) is collected only after you explicitly tap “Check In.”</li>
-        <li><strong>Background Sharing</strong>: If you grant Always authorization, we continue updating and querying your location in the background to power proximity-based feedback.</li>
-      </ul>
-      We process and store <code>latitude</code>, <code>longitude</code>, and a <code>locationLastUpdated</code> timestamp in your CloudKit record.
-    </li>
+    <li><strong>Your phone number.</strong> If you add and verify a number, we use it to confirm ownership by SMS and to enable phone-number feedback features.</li>
+    <li><strong>Contacts.</strong> If you grant Contacts permission or choose a contact, we process the selected contact name and phone number to let you select a recipient. We may retain locally cached, per-install salted hashes of phone numbers for up to seven days to improve contact results while offline; these cached hashes are not used as the final decision about whether a number belongs to a Feedback user.</li>
+    <li><strong>Feedback sent to a phone number.</strong> When you choose to send feedback to a number, we process that number to determine whether it belongs to a Feedback account. If it does not, we retain the feedback pending verification of that number. We ask for your consent before sending an SMS invitation to a non-user. The invite does not identify the sender.</li>
+    <li><strong>Verification and invitation SMS.</strong> We use Amazon Web Services (AWS) Simple Notification Service to send verification codes and consented invitations. AWS processes the destination phone number and message needed to deliver the SMS.</li>
   </ul>
 
-  <h3>1.5 Feedback & Interaction Data</h3>
+  <h3>Device, notification, and technical information</h3>
   <ul>
-    <li><strong>Feedback Messages & Ratings</strong><br>Text you send and the numeric rating (0.5–5.0) stored as CloudKit records.</li>
-    <li><strong>Feedback Score</strong><br>Computed and stored per user (1.0–5.0) in CloudKit based on feedback history.</li>
-    <li><strong>Encounters / Proximity Sessions</strong><br>Server-side code measures how long two users remain within proximity (≤ 10 m) and, upon separation, writes “Encounter” records to CloudKit with timestamps, durations, and latitude/longitude.</li>
-  </ul>
-
-  <h3>1.6 Blocking Information</h3>
-  <ul>
-    <li><strong>Blocked User IDs</strong><br>Stored locally in <code>UserDefaults</code> and synced to your CloudKit profile.</li>
-  </ul>
-
-  <h3>1.7 Notifications & Device Token</h3>
-  <ul>
-    <li><strong>APNs Device Token</strong><br>Collected and saved in your CloudKit record to enable push notifications.</li>
-    <li><strong>Push Notification Usage</strong>
-      <ul>
-        <li><strong>Reminder Notifications</strong>: Daily 6 AM reminders and weekly summaries scheduled via <code>UNUserNotificationCenter</code>.</li>
-        <li><strong>Leave Feedback</strong>: Prompt after qualifying proximity sessions.</li>
-        <li><strong>Stale-Location Alerts</strong>: Server script detects when your location stops updating and pushes “please keep app running” notices.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h3>1.8 Technical & Usage Data</h3>
-  <ul>
-    <li><strong>CloudKit Record Identifiers</strong><br>Used internally to fetch and update your profile, feedback, and encounter records.</li>
-    <li><strong>Timestamps & Metrics</strong><br>Recorded for when feedback is sent/viewed, location updates, notification scheduling, and CloudKit operations.</li>
-    <li><strong>Local Caching</strong><br>We cache profile fields, feedback arrays, blocked lists, and eligibility data in <code>UserDefaults</code> for offline support and performance.</li>
+    <li><strong>Push-notification token.</strong> If you allow notifications, we store an Apple Push Notification service (APNs) device token so we can send relevant alerts.</li>
+    <li><strong>Notification and service events.</strong> We process notification state and related timestamps to deliver encounter prompts, the weekly feedback summary, feedback-quota reminders, and, where relevant, location-session reminders. The weekly feedback summary is sent at 5 PM local time on Wednesday and is based on current CloudKit data.</li>
+    <li><strong>Technical identifiers and local data.</strong> We process CloudKit record identifiers, app state, timestamps, and locally stored caches and durable queues. These allow offline submissions, profile edits, report delivery, reliability, and performance.</li>
   </ul>
 
   <hr>
 
-  <h2>2. How We Use Your Information</h2>
+  <h2>2. How We Use Information</h2>
   <ul>
-    <li><strong>Account Creation & Management</strong>: To create and maintain your user profile in CloudKit and in-app state.</li>
-    <li><strong>Feedback Functionality</strong>: To enable sending, receiving, and displaying feedback messages and ratings, and to compute and display your feedback score.</li>
-    <li><strong>Proximity-Based Features</strong>: To identify nearby users when checked in, manage eligibility timers, and trigger leave-feedback notifications after separation.</li>
-    <li><strong>Notifications</strong>: To schedule and deliver push notifications for daily/weekly reminders, leave-feedback prompts, and stale-location alerts.</li>
-    <li><strong>Blocking</strong>: To prevent blocked users from sending you feedback and to hide them from your radar view.</li>
-    <li><strong>Server-Side Proximity Processing</strong>: To aggregate CloudKit location data, compute proximity sessions, enforce together/grace/separation thresholds, and write “Encounters” back to CloudKit.</li>
-    <li><strong>Security & Integrity</strong>: To sign server-to-CloudKit requests with ECDSA, generate APNs JWTs, and verify request authenticity.</li>
-    <li><strong>Caching & Offline Support</strong>: To store data locally for smoother UI and offline access.</li>
+    <li>To create, operate, and secure your Feedback account and profile.</li>
+    <li>To identify nearby checked-in users, create eligible encounters, and provide proximity-based feedback features.</li>
+    <li>To let you send, receive, release, view, filter, share, report, and block feedback.</li>
+    <li>To calculate feedback scores and score history.</li>
+    <li>To verify phone numbers, process consented SMS invitations, and support phone-number feedback.</li>
+    <li>To deliver notifications and keep their badge/count information accurate.</li>
+    <li>To maintain local caches and durable queues so the Services can recover from a loss of connectivity.</li>
+    <li>To investigate reports, prevent abuse, enforce our rules, protect users, and maintain the security and integrity of the Services.</li>
   </ul>
 
   <hr>
 
-  <h2>3. How We Share Your Information</h2>
+  <h2>3. How Feedback Is Shared</h2>
+  <p>Feedback is designed to be anonymous. The person receiving feedback is shown the feedback message, rating, category, and associated display information used by the product, but not the identity of the person who sent it. We retain technical identifiers internally to operate the service, enforce cooldowns, investigate reports, and protect against abuse.</p>
+
+  <p>Feedback sent to an existing Feedback user is ordinarily released in the recipient's app at the next Wednesday 5 PM release. Feedback that was sent to a phone number before the recipient joined may be made available when that number is verified, using the original submission time. These timing rules may change as the product evolves.</p>
+
+  <p>While you are checked in, other checked-in users may be able to see the profile information the app displays for nearby users, such as your display name or initials and profile image, together with your nearby/availability status. We do not display your exact coordinates to other users through the app.</p>
+
+  <hr>
+
+  <h2>4. Service Providers and Other Disclosures</h2>
+  <p>We use service providers that process information on our behalf:</p>
   <ul>
-    <li><strong>Other App Users</strong>
-      <ul>
-        <li><strong>Feedback Records</strong>: Your feedback text, timestamp, rating, and display name are visible to the recipient.</li>
-        <li><strong>Encounter Records</strong>: Proximity sessions write records for both participants.</li>
-        <li><strong>Blocking</strong>: When you block someone, their ID is stored in your profile; recipients cannot see you.</li>
-      </ul>
-    </li>
-    <li><strong>Apple’s CloudKit Service</strong><br>All personal and interaction data is stored in your private CloudKit container (<code>iCloud.com.location.Feedback</code>). We never share data outside CloudKit except as described above.</li>
-    <li><strong>Push Notification Servers</strong>
-      <ul>
-        <li><strong>Apple APNs</strong>: We send your device token and payloads to Apple’s APNs.</li>
-        <li><strong>Server-Side Scripts</strong>: Your device token is used to look up your CloudKit profile and send notifications; logs are not shared externally.</li>
-      </ul>
-    </li>
-    <li><strong>No Third-Party Analytics or Advertising</strong><br>We do not integrate external analytics or ad networks.</li>
+    <li><strong>Apple.</strong> We use Sign in with Apple, CloudKit to store and synchronize service data, and APNs to deliver push notifications.</li>
+    <li><strong>AWS.</strong> We use AWS Simple Notification Service to deliver verification and consented invitation SMS messages. We also use an AWS-hosted endpoint to receive moderation reports.</li>
+  </ul>
+
+  <p>When you make a moderation report, the report may include the feedback text, rating, relevant technical identifiers, report time, and location associated with the feedback so we can investigate it. We may also disclose information where reasonably necessary to comply with law, respond to valid legal process, protect the rights, safety, and security of users or the public, or investigate fraud, abuse, or violations of our terms.</p>
+
+  <p>We do not sell personal information and do not use third-party advertising networks or third-party analytics SDKs for advertising.</p>
+
+  <hr>
+
+  <h2>5. Data Retention</h2>
+  <p>We retain account, profile, feedback, encounter, report, and related service records for as long as needed to provide the Services, maintain safety and integrity, resolve disputes, comply with legal obligations, and enforce our agreements. CloudKit records are not automatically deleted simply because feedback is reported or hidden. Local caches and queued operations remain on your device until they are no longer needed, you sign out, you delete the app, or iOS removes the relevant app data.</p>
+
+  <hr>
+
+  <h2>6. Your Choices and Rights</h2>
+  <ul>
+    <li><strong>Profile information.</strong> You can update eligible profile information in the app.</li>
+    <li><strong>Permissions.</strong> You can change Location, Contacts, Camera, Photos, and Notification permissions in iOS Settings. Turning off location or background location limits proximity features.</li>
+    <li><strong>Reports and blocks.</strong> You can use in-app controls to report feedback and block users.</li>
+    <li><strong>Marketing.</strong> We do not use your information for third-party advertising.</li>
+    <li><strong>Access, deletion, and other requests.</strong> To request access to, correction of, export of, or deletion of personal information, contact us using the details below. We may need to verify your identity and may retain limited information where required or permitted by law.</li>
   </ul>
 
   <hr>
 
-  <h2>4. Data Retention</h2>
-  <ul>
-    <li><strong>CloudKit Records</strong><br>Persist until you delete your account or we remove them upon request.</li>
-    <li><strong>Local Cache (<code>UserDefaults</code>)</strong><br>Persists until you uninstall the App or clear the app data.</li>
-  </ul>
+  <h2>7. Security</h2>
+  <p>We use reasonable administrative, technical, and organizational measures designed to protect information. Communications with CloudKit, AWS, and APNs use encrypted network connections. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
 
   <hr>
 
-  <h2>5. Your Choices & Rights</h2>
-  <ul>
-    <li><strong>Edit or Delete Profile Information</strong><br>Use the in-app Edit Profile screen to update or clear name, photo, email, phone, birthday, or gender.</li>
-    <li><strong>Revoke Location Permissions</strong><br>Change “When In Use” or “Always” location permissions in iOS Settings to disable proximity features.</li>
-    <li><strong>Unblock Users</strong><br>Tap “Unblock” in Blocked Users to remove IDs from your block list.</li>
-    <li><strong>Data Export & Deletion</strong><br>To export or permanently delete your CloudKit data (profile, feedback, encounters), contact us at the email below.</li>
-    <li><strong>Children’s Privacy</strong><br>The App is not intended for users under 17. We do not knowingly collect data from children under 17.</li>
-  </ul>
+  <h2>8. Children's Privacy</h2>
+  <p>Feedback is not intended for people under 17. We do not knowingly collect personal information from children under 17. If you believe a child has provided personal information to us, contact us and we will take appropriate steps to address the request.</p>
 
   <hr>
 
-  <h2>6. Security</h2>
-  <ul>
-    <li><strong>Encryption in Transit & At Rest</strong><br>All data to/from CloudKit and APNs is sent over TLS. CloudKit encrypts data at rest.</li>
-    <li><strong>ECDSA Request Signing</strong><br>Server uses your private key to sign CloudKit API requests; only valid signatures are accepted by Apple.</li>
-    <li><strong>Device Security</strong><br>Local caches in <code>UserDefaults</code> are protected by iOS sandboxing and device encryption.</li>
-  </ul>
+  <h2>9. International Processing</h2>
+  <p>Your information may be processed in countries where Apple, AWS, or our service providers operate. Those countries may have data-protection laws that differ from the laws where you live.</p>
 
   <hr>
 
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy to reflect changes in features or legal requirements. We will post the revised date at the top and, for significant changes, notify you in-app.</p>
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy to reflect changes to the Services, legal requirements, or our privacy practices. We will post the updated policy and revise the "Last updated" date. Where required, we will provide additional notice or obtain consent.</p>
 
   <hr>
 
-  <h2>8. Contact Us</h2>
-  <p>If you have questions or requests regarding this Privacy Policy or your data, please contact:</p>
-  <p><strong>Email:</strong> feedback@thefeedbackapp.org<br>
-
-  <p><em>By using our App and Services, you acknowledge that you have read, understood, and agree to this Privacy Policy.</em></p>
+  <h2>11. Contact Us</h2>
+  <p>If you have questions, concerns, or requests about this Privacy Policy or your information, contact us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:feedback@thefeedbackapp.org">feedback@thefeedbackapp.org</a></p>
 
 </body>
 </html>
