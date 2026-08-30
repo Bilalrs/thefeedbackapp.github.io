@@ -16,7 +16,7 @@
 <body>
 
   <h1>Privacy Policy for Feedback</h1>
-  <p><strong>Last updated:</strong> August 2, 2026</p>
+  <p><strong>Last updated:</strong> August 30, 2026</p>
 
   <p>Feedback ("we", "us", or "our") provides an iOS service for sharing and receiving anonymous feedback following real-world interactions. This Privacy Policy explains what information we collect, how we use it, and the choices available to you when you use the Feedback app, our supporting services, and our website (together, the "Services").</p>
 
@@ -36,6 +36,7 @@
     <li><strong>Precise location.</strong> When you check in and grant permission, the app collects your latitude, longitude, and the time of the location update. If you grant Always location access, the app can update location in the background while you remain checked in.</li>
     <li><strong>Nearby and encounter information.</strong> We use recent location updates to identify checked-in users who are near one another. Our service may create an encounter after two cumulative minutes within a 20 metre radius. Encounter records can include participant record identifiers, timestamps, duration, and the location associated with the encounter. A short location interruption may be tolerated so background delivery gaps do not immediately end an in-progress encounter.</li>
     <li><strong>Location freshness.</strong> We store timestamps showing when location was last updated and, where applicable, when a location-related notification was sent. This helps us show nearby users and avoid acting on stale location data.</li>
+    <li><strong>Radar improvement comparison.</strong> If you choose <em>Allow</em> in the in-app Radar improvement prompt, we also send your checked-in precise location, accuracy, time, and technical installation/profile identifiers to a separate AWS-hosted service. It compares the developing Radar system with the existing proximity system to improve accuracy and reliability. It does not change the nearby experience, encounters, feedback eligibility, or notifications.</li>
   </ul>
 
   <h3>Feedback and interaction information</h3>
@@ -90,7 +91,7 @@
   <p>We use service providers that process information on our behalf:</p>
   <ul>
     <li><strong>Apple.</strong> We use Sign in with Apple, CloudKit to store and synchronize service data, and APNs to deliver push notifications.</li>
-    <li><strong>AWS.</strong> We use AWS Simple Notification Service to deliver verification and consented invitation SMS messages. We also use an AWS-hosted endpoint to receive moderation reports.</li>
+    <li><strong>AWS.</strong> We use AWS Simple Notification Service to deliver verification and consented invitation SMS messages. We also use AWS-hosted endpoints to receive moderation reports and, when you opt in, to run the non-authoritative Radar improvement comparison.</li>
   </ul>
 
   <p>When you make a moderation report, the report may include the feedback text, rating, relevant technical identifiers, report time, and location associated with the feedback so we can investigate it. We may also disclose information where reasonably necessary to comply with law, respond to valid legal process, protect the rights, safety, and security of users or the public, or investigate fraud, abuse, or violations of our terms.</p>
@@ -100,7 +101,7 @@
   <hr>
 
   <h2>5. Data Retention</h2>
-  <p>We retain account, profile, feedback, encounter, report, and related service records for as long as needed to provide the Services, maintain safety and integrity, resolve disputes, comply with legal obligations, and enforce our agreements. CloudKit records are not automatically deleted simply because feedback is reported or hidden. Local caches and queued operations remain on your device until they are no longer needed, you sign out, you delete the app, or iOS removes the relevant app data.</p>
+  <p>We retain account, profile, feedback, encounter, report, and related service records for as long as needed to provide the Services, maintain safety and integrity, resolve disputes, comply with legal obligations, and enforce our agreements. CloudKit records are not automatically deleted simply because feedback is reported or hidden. Radar-improvement exact-location records are set to expire after ten minutes; technical replay-protection records are set to expire after fifteen minutes; and non-authoritative comparison state is set to expire after twenty-four hours. Deletion from AWS after those periods is performed by DynamoDB's asynchronous TTL process. Local caches and queued operations remain on your device until they are no longer needed, you sign out, you delete the app, or iOS removes the relevant app data.</p>
 
   <hr>
 
@@ -108,6 +109,7 @@
   <ul>
     <li><strong>Profile information.</strong> You can update eligible profile information in the app.</li>
     <li><strong>Permissions.</strong> You can change Location, Contacts, Camera, Photos, and Notification permissions in iOS Settings. Turning off location or background location limits proximity features.</li>
+    <li><strong>Radar improvement comparison.</strong> You can choose Not now, or turn this optional comparison off at any time from the Metrics card in the app. Turning it off stops new Radar-improvement location submissions; it does not affect the existing proximity experience.</li>
     <li><strong>Reports and blocks.</strong> You can use in-app controls to report feedback and block users.</li>
     <li><strong>Marketing.</strong> We do not use your information for third-party advertising.</li>
     <li><strong>Access, deletion, and other requests.</strong> To request access to, correction of, export of, or deletion of personal information, contact us using the details below. We may need to verify your identity and may retain limited information where required or permitted by law.</li>
